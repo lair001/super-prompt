@@ -7,8 +7,8 @@ SuperPrompt is a Bash prompt coded to be easily customizable by anyone with a ba
 
 # Installation Instuctions
 
-1.  Copy ./super_prompt_v1.0 to your home directory
+1.  Copy ./super_prompt to your home directory
 2.  Add following line to the end of your ./bashrc or ./bash_profile file (as appropriate):
-      source ./super_prompt_v1.0
+      source ./super_prompt
 3.  Either restart your terminal or enter the command:
-      source ./super_prompt_v1.0
+      source ./super_prompt
