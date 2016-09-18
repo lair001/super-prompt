@@ -1,9 +1,14 @@
 # customize prompt
 
-firstPrompt='true'
-PROMPT_COMMAND=SuperPrompt
+# function to generate git branch name
+parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1:/'
+}
 
-function SuperPrompt() {
+firstPrompt='true'
+PROMPT_COMMAND=super_prompt
+
+function super_prompt() {
 	local lastCommandStatus=$? # capture status of last command
 
 	# variables to make modification easier
@@ -27,13 +32,14 @@ function SuperPrompt() {
 	local pathColor='1;34' # color for path
 	local pathFormat='$PWD' # format for path
 	local successSymbol='✔' # symbol to display when last command succeeds
-	local successColor='0;32' # color for success symbol
+	local successColor='1;32' # color for success symbol
 	local failureSymbol='✗' # symbol to display when last command fails
-	local failureColor='0;31' # color for failure symbol
+	local failureColor='1;31' # color for failure symbol
 	local warningColor='1;31' # warning color
 	local warningSymbol='☢' # warning symbol
 	local allClearColor='1;32' # all clear color
 	local allClearSymbol='☀' # all clear symbol
+	local gitColor='1;31' # color for git branch
 
 	# end modification variables
 
@@ -58,7 +64,7 @@ function SuperPrompt() {
 	fi
 
 	# write a header to PS1 consisting of command and history numbers and path
-	primaryPrompt+=$containerStart'\a\e['$commandColor'm'$commandFormat'\e[m'$containerDivision'\e['$historyColor'm'$historyFormat'\e[m'$containerDivision'\e['$pathColor'm'$pathFormat'\e[m'$containerEnd
+	primaryPrompt+=$containerStart'\a\e['$commandColor'm'$commandFormat'\e[m'$containerDivision'\e['$historyColor'm'$historyFormat'\e[m'$containerDivision'\e['$gitColor'm'$(parse_git_branch)'\e[m\e['$pathColor'm'$pathFormat'\e[m'$containerEnd
 
 	if [ $lastCommandStatus == 0 ] # if last command succeded, use success color and symbol
 
