@@ -1,6 +1,6 @@
 # Super Prompt
 
-Customizable Bash prompt that provides the user with a wealth of information at a glance including git branch, present working directory (pwd), whether the last command succeeded, warns the user if the user is root, date, time, user, host name, command number and history number.
+Super Prompt is a customizable Bash prompt that provides the user with a wealth of information at a glance including git branch, present working directory (pwd), whether the last command succeeded, warns the user if the user is root, date, time, user, host name, command number and history number.
 
 ## Installation Instuctions
 
