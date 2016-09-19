@@ -1,3 +1,15 @@
 #!/usr/bin/env ruby
 
-`lib/super_prompt.sh`
+require 'fileutils.rb'
+
+`sed -i 's/\s*source \.super_prompt\s*//g' ~/.bash_profile`
+`sed -i 's/\s*source \.super_prompt\s*//g' ~/.bashrc`
+
+`printf '\nsource .super_prompt\n' >> ~/.bash_profile`
+`printf '\nsource .super_prompt\n' >> ~/.bashrc`
+
+dest_path = `echo $HOME`.strip + '/.super_prompt'
+source_path = File.expand_path(File.dirname(__FILE__)).chomp('bin') + 'lib/.super_prompt'
+
+
+FileUtils.cp(source_path, dest_path)

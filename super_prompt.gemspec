@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.homepage = 'https://github.com/lair001/super-prompt'
   s.authors = ['Samuel Lair']
   s.email = 'lair002@gmail.com'
-  s.files = `git ls-files`.split(/\n/).keep_if{ |x| x.include?("lib/") || x.include?("config/") }
+  s.files = ["lib/super_prompt.rb", "/lib/.super_prompt"]
   s.executables   = ["super_prompt"]
   s.require_paths = ["lib"]
 
