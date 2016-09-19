@@ -13,6 +13,8 @@ function super_prompt() {
 
 	# variables to make modification easier
 
+
+	local bell='' # '\a' for bell or '' for no bell
 	local containerColor='0;33' # color of the container for the information header
 	local containerStartSymbol='[' # symbol used at the start of the container for the information header
 	local containerEndSymbol=']\n' # symbol used at the end of the container for the information header
@@ -64,7 +66,7 @@ function super_prompt() {
 	fi
 
 	# write a header to PS1 consisting of command and history numbers and path
-	primaryPrompt+=$containerStart'\a\e['$commandColor'm'$commandFormat'\e[m'$containerDivision'\e['$historyColor'm'$historyFormat'\e[m'$containerDivision'\e['$gitColor'm'$(parse_git_branch)'\e[m\e['$pathColor'm'$pathFormat'\e[m'$containerEnd
+	primaryPrompt+=$containerStart$bell'\e['$commandColor'm'$commandFormat'\e[m'$containerDivision'\e['$historyColor'm'$historyFormat'\e[m'$containerDivision'\e['$gitColor'm'$(parse_git_branch)'\e[m\e['$pathColor'm'$pathFormat'\e[m'$containerEnd
 
 	if [ $lastCommandStatus == 0 ] # if last command succeded, use success color and symbol
 

@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
 
   s.name = 'super_prompt'
-  s.version = '1.0.0'
+  s.version = '1.0.1'
   s.date = '2016-09-18'
   s.summary = 'Super Prompt: Customizable Bash prompt that provides the user with a wealth of information at a glance.'
   s.description = 'This gem installs Super Prompt.  Super Prompt is a customizable Bash prompt that provides the user with a wealth of information at a glance including git branch, present working directory (pwd), whether the last command succeeded, warns the user if the user is root, date, time, user, host name, command number and history number.'
